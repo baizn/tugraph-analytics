@@ -44,7 +44,6 @@ public class LdbcTest {
         }
         QueryTester
             .build()
-            .enableInitDDL(false)
             .withConfig(DSLConfigKeys.GEAFLOW_DSL_WINDOW_SIZE.getKey(), "1")
             .withConfig(FileConfigKeys.PERSISTENT_TYPE.getKey(), "DFS")
             .withConfig(FileConfigKeys.ROOT.getKey(), TEST_GRAPH_PATH)
@@ -76,8 +75,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_01.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_01.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -87,8 +93,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_02.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_02.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -98,8 +111,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_03.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_03.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -109,8 +129,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_04.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_04.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -120,8 +147,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_05.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_05.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -131,8 +165,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_06.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_06.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -142,8 +183,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_07.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_07.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -153,8 +201,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_08.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_08.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -164,8 +219,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_09.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_09.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -175,9 +237,16 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_10.sql")
-            .enableInitDDL(false)
             .withConfig(DSLConfigKeys.GEAFLOW_DSL_WINDOW_SIZE.getKey(), "-1")
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_10.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -187,8 +256,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_11.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_11.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -198,8 +274,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_12.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_12.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -209,8 +292,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_13.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_13.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -220,8 +310,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_14.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_14.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -231,8 +328,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_15.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_15.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -242,8 +346,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_16.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_16.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -253,8 +364,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_17.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_17.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -264,8 +382,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_18.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_18.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -275,8 +400,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_19.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_19.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -286,8 +418,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/bi_20.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/bi_20.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -297,8 +436,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/is_01.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/is_01.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -308,8 +454,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/is_02.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/is_02.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -319,8 +472,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/is_03.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/is_03.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -330,8 +490,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/is_04.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/is_04.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -341,8 +508,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/is_05.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/is_05.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -352,8 +526,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/is_06.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/is_06.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }
@@ -363,8 +544,15 @@ public class LdbcTest {
         QueryTester
             .build()
             .withQueryPath("/ldbc/is_07.sql")
-            .enableInitDDL(false)
             .withConfig(testConfig)
+            .execute()
+            .checkSinkResult();
+
+        QueryTester
+            .build()
+            .withQueryPath("/ldbc/is_07.sql")
+            .withConfig(testConfig)
+            .withConfig(DSLConfigKeys.GEAFLOW_DSL_TRAVERSAL_SPLIT_ENABLE.getKey(), String.valueOf(true))
             .execute()
             .checkSinkResult();
     }

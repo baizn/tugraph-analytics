@@ -161,6 +161,9 @@ public class FunctionCallUtils {
         if (defineType == callType) {
             return 1d;
         } else {
+            if (callType == null) { // the input parameter is null
+                return 1d;
+            }
             int typeDegreeIndex = findTypeDegreeIndex(defineType, callType);
 
             if (typeDegreeIndex != -1) {
@@ -369,7 +372,11 @@ public class FunctionCallUtils {
                 castParams[i] = TypeCastUtil.cast(params[i], getBoxType(defineTypes[i]));
             }
         }
-        return method.invoke(target, castParams);
+        Object result = method.invoke(target, castParams);
+        if (result instanceof String) { // convert string to binary string if the udf return string type.
+            result = BinaryString.fromString((String) result);
+        }
+        return result;
     }
 
     public static Class<?> typeClass(Class<?> type, boolean useBinary) {

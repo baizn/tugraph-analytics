@@ -15,9 +15,13 @@
 package com.antgroup.geaflow.dsl.optimize;
 
 import com.antgroup.geaflow.dsl.optimize.rule.AddVertexResetRule;
+import com.antgroup.geaflow.dsl.optimize.rule.FilterMatchNodeTransposeRule;
+import com.antgroup.geaflow.dsl.optimize.rule.FilterToMatchRule;
 import com.antgroup.geaflow.dsl.optimize.rule.GQLAggregateProjectMergeRule;
 import com.antgroup.geaflow.dsl.optimize.rule.GQLMatchUnionMergeRule;
 import com.antgroup.geaflow.dsl.optimize.rule.GQLProjectRemoveRule;
+import com.antgroup.geaflow.dsl.optimize.rule.MatchFilterMergeRule;
+import com.antgroup.geaflow.dsl.optimize.rule.MatchJoinMatchMergeRule;
 import com.antgroup.geaflow.dsl.optimize.rule.MatchJoinTableToGraphMatchRule;
 import com.antgroup.geaflow.dsl.optimize.rule.MatchSortToLogicalSortRule;
 import com.antgroup.geaflow.dsl.optimize.rule.PathInputReplaceRule;
@@ -85,8 +89,14 @@ public class OptimizeRules {
         PushJoinFilterConditionRule.INSTANCE,
         PushConsecutiveJoinConditionRule.INSTANCE,
         TableJoinTableToGraphRule.INSTANCE,
+        MatchJoinMatchMergeRule.INSTANCE,
         MatchJoinTableToGraphMatchRule.INSTANCE,
-        TableJoinMatchToGraphMatchRule.INSTANCE);
+        TableJoinMatchToGraphMatchRule.INSTANCE,
+        MatchJoinMatchMergeRule.INSTANCE,
+        FilterToMatchRule.INSTANCE,
+        FilterMatchNodeTransposeRule.INSTANCE,
+        MatchFilterMergeRule.INSTANCE
+    );
 
     private static final List<RelOptRule> POST_OPTIMIZE_RULES = ImmutableList.of(
         PathInputReplaceRule.INSTANCE

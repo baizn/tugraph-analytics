@@ -38,8 +38,6 @@ public class Container extends AbstractContainer implements IContainer<IEvent, I
     private static final Logger LOGGER = LoggerFactory.getLogger(Container.class);
 
     private static final String CONTAINER_NAME_PREFIX = "container-";
-    private static final String CONTAINER_RPC_THREAD_PREFIX = "container-rpc-executor";
-    private static final int CONTAINER_RPC_THREAD_NUM = 1;
 
     private ContainerContext containerContext;
     private Dispatcher dispatcher;
@@ -83,7 +81,7 @@ public class Container extends AbstractContainer implements IContainer<IEvent, I
             LOGGER.info("open container {} with {} executors", name, num);
 
             this.fetcherService = new FetcherService(num, configuration);
-            this.emitterService = new EmitterService(num);
+            this.emitterService = new EmitterService(num, configuration);
             this.workerService = new TaskService(id, num,
                 configuration, metricGroup, fetcherService, emitterService);
             this.dispatcher = new Dispatcher(workerService);
